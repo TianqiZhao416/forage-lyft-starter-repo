@@ -7,16 +7,6 @@ class Car(ABC):
         self.engine = engine
         self.battery = battery
 
-    @abstractmethod
+    # @abstractmethod
     def needs_service(self):
-        pass
-
-# class Car(ABC):
-#     def __init__(self,last_service_date):
-#         self.last_service_date = last_service_date
-#         # self.engine = engine
-#         # self.battery = battery
-
-#     @abstractmethod
-#     def needs_service(self):
-#         pass
+        return self.engine.needs_service() or self.battery.battery_should_be_serviced()

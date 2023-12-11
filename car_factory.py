@@ -11,29 +11,29 @@ from engine.sternman_engine import SternmanEngine
 from engine.willoughby_engine import WilloughbyEngine
 
 
-def CarFactory():
+class CarFactory():
     def create_calliope(current_date, last_service_date, current_mileage, last_service_mileage):
-        engine = CapuletEngine(last_service_mileage, current_mileage)
+        engine = CapuletEngine(current_mileage,last_service_mileage)
         battery = Spindler_battery(last_service_date, current_date)
         return Car(engine, battery)
 
     def create_glissade(current_date, last_service_date, current_mileage, last_service_mileage):
-        engine = WilloughbyEngine(last_service_mileage, current_mileage)
+        engine = WilloughbyEngine( current_mileage,last_service_mileage)
         battery = Spindler_battery(last_service_date, current_date)
         return Car(engine, battery)
 
-    def create_palindrome(current_date, last_service_date, current_mileage, last_service_mileage):
-        engine = SternmanEngine(last_service_mileage, current_mileage)
+    def create_palindrome(current_date, last_service_date, warning_light):
+        engine = SternmanEngine(warning_light)
         battery = Spindler_battery(last_service_date, current_date)
         return Car(engine, battery)
 
     def create_rorschach(current_date, last_service_date, current_mileage, last_service_mileage):
-        engine = WilloughbyEngine(last_service_mileage, current_mileage)
+        engine = WilloughbyEngine(current_mileage,last_service_mileage)
         battery = Nubbin_battery(last_service_date, current_date)
         return Car(engine, battery)
 
     def create_thovex(current_date, last_service_date, current_mileage, last_service_mileage):
-        engine = CapuletEngine(last_service_mileage, current_mileage)
+        engine = CapuletEngine(current_mileage,last_service_mileage)
         battery = Nubbin_battery(last_service_date, current_date)
         return Car(engine, battery)
     
